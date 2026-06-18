@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ACCESO VIP • WhatsApp Oficial</title>
+  <meta name="theme-color" content="#6d16c9" />
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --green1:#27e56d; --green2:#0aa548;
+    }
+    body{
+      position:relative;
+      min-height:100vh;
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,sans-serif;
+      background:#090015;
+      color:#fff;
+      display:flex; align-items:center; justify-content:center;
+      padding:18px;
+    }
+    /* Fondo generado con IA + zoom lento (Ken Burns) para dar sensación de movimiento */
+    body::before{
+      content:"";
+      position:fixed; inset:-4%;
+      background:url("fondo-casino.png") center/cover no-repeat;
+      animation:kenburns 24s ease-in-out infinite alternate;
+      z-index:-2;
+    }
+    /* Capa oscura encima del fondo para que el texto se lea siempre bien */
+    body::after{
+      content:"";
+      position:fixed; inset:0;
+      background:radial-gradient(circle at top,rgba(138,44,255,.30) 0,rgba(9,0,21,.78) 60%,rgba(9,0,21,.93) 100%);
+      z-index:-1;
+    }
+    @keyframes kenburns{
+      from{transform:scale(1) translateY(0)}
+      to{transform:scale(1.12) translateY(-1.5%)}
+    }
+    /* Respeta a quienes prefieren menos animación */
+    @media (prefers-reduced-motion: reduce){
+      body::before{animation:none}
+      .btn-whatsapp{animation:none}
+      .wrapper{animation:none}
+    }
+    .wrapper{width:100%;max-width:520px;animation:fadeUp .6s ease both}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+    .logos{display:flex;justify-content:center;gap:28px;margin-bottom:14px;flex-wrap:wrap}
+    .logo-item img{max-height:62px;max-width:200px;object-fit:contain;filter:drop-shadow(0 10px 18px rgba(0,0,0,.35))}
+    .card{
+      background:linear-gradient(180deg,rgba(27,6,38,.86),rgba(5,1,9,.92));
+      backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+      border-radius:24px; padding:24px 18px 18px;
+      box-shadow:0 12px 44px rgba(0,0,0,.72);
+      border:1px solid rgba(255,215,120,.22);
+    }
+    .pill{
+      display:inline-block;padding:7px 16px;border-radius:999px;
+      background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);
+      font-size:12px;font-weight:800;text-transform:uppercase;margin-bottom:14px;color:#f2edff;
+    }
+    .title{font-size:27px;font-weight:900;text-transform:uppercase;margin-bottom:10px;letter-spacing:.02em}
+    .subtitle{font-size:14px;color:#e8e1ff;margin-bottom:18px;line-height:1.45}
+    .btn-whatsapp{
+      display:flex;justify-content:center;align-items:center;gap:12px;width:100%;
+      padding:17px;border-radius:999px;text-decoration:none;
+      background:linear-gradient(180deg,var(--green1),var(--green2));
+      color:#fff;box-shadow:0 18px 38px rgba(5,160,70,.45);
+      animation:pulseGlow 3.6s ease-in-out infinite;cursor:pointer;
+      transition:transform .15s ease, opacity .2s ease;
+    }
+    .btn-whatsapp:active{transform:scale(.98)}
+    .btn-whatsapp.loading{opacity:.6;pointer-events:none;animation:none}
+    @keyframes pulseGlow{0%,100%{box-shadow:0 18px 38px rgba(5,160,70,.45)}50%{box-shadow:0 22px 50px rgba(5,160,70,.62)}}
+    .wa-icon{width:26px;height:26px;flex:0 0 auto}
+    .btn-text{display:flex;flex-direction:column;align-items:center;text-align:center;line-height:1.08}
+    .btn-text .main{font-size:16px;font-weight:900;text-transform:uppercase;letter-spacing:.06em}
+    .btn-text .sub{font-size:12px;font-weight:700;opacity:.95}
+    .bar{
+      margin-top:14px;padding:9px;border-radius:999px;
+      background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);
+      font-size:11px;font-weight:800;text-align:center;color:#ffe86a;
+    }
+    .stats{margin-top:14px;display:flex;justify-content:space-between;gap:6px}
+    .stat-item{text-align:center;flex:1;background:rgba(255,255,255,.04);border-radius:14px;padding:10px 6px}
+    .stat-label{font-size:11px;color:#d9cfff;font-weight:700}
+    .stat-value{font-weight:900;margin-top:2px}
+    .footer{margin-top:14px;font-size:10px;text-align:center;color:#c7b5ee;line-height:1.4}
+  </style>
+
+  <!-- META PIXEL -->
+  <script>
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];
+      t=b.createElement(e);t.async=!0;t.src=v;
+      s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)
+    }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','711179821799803');
+    fbq('track','PageView');
+  </script>
+</head>
+
+<body>
+
+<div class="wrapper">
+  <div class="logos">
+    <div class="logo-item"><img src="logo bet22.webp" alt="22Bet" /></div>
+    <div class="logo-item"><img src="ganamos logo.webp" alt="Ganamos" /></div>
+  </div>
+
+  <section class="card">
+    <div class="pill">ACCESO VIP • NUEVOS USUARIOS</div>
+    <h1 class="title">WhatsApp Oficial</h1>
+    <p class="subtitle">
+      <strong>Bono disponible con la primera carga.</strong><br />
+      Atención inmediata • Asesor real
+    </p>
+
+    <a id="btn-whatsapp" class="btn-whatsapp loading" href="#" rel="noopener">
+      <svg class="wa-icon" viewBox="0 0 24 24" fill="#fff" aria-hidden="true">
+        <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.15h-.01c-1.52 0-3.01-.41-4.3-1.18l-.31-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.36c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/>
+      </svg>
+      <span class="btn-text">
+        <span class="main" id="btn-main">CARGANDO…</span>
+        <span class="sub">Respuesta inmediata • Sin bots</span>
+      </span>
+    </a>
+
+    <div class="bar">✔ Atención 24 hs • ✔ Plataforma verificada</div>
+
+    <div class="stats">
+      <div class="stat-item"><div class="stat-label">BONO</div><div class="stat-value">Disponible</div></div>
+      <div class="stat-item"><div class="stat-label">Carga mínima</div><div class="stat-value">$1.000</div></div>
+      <div class="stat-item"><div class="stat-label">Retiro mínimo</div><div class="stat-value">$2.000</div></div>
+    </div>
+
+    <p class="footer">Plataforma segura • Pagos verificados<br />+18 • Jugá con responsabilidad</p>
+  </section>
+</div>
+
+<script>
+  // ============================================================
+  // CONFIG — lo único que podrías querer tocar
+  // ============================================================
+  // Endpoint del panel que devuelve el número actual del cliente.
+  const PANEL_ENDPOINT = "https://xfizuvswwigfxdqtngwq.supabase.co/functions/v1/landing-whatsapp";
+  // Número de RESPALDO por si el panel no responde (que el botón nunca quede muerto).
+  const WHATSAPP_FALLBACK = "542613635257";
+  // El slug del cliente sale de la URL: ...?slug=casino-demo
+  // Si no viene en la URL, se usa este por defecto.
+  const SLUG_DEFAULT = "casino-demo";
+  const MENSAJE = "Hola, quiero más info.";
+  // ============================================================
+
+  const params = new URLSearchParams(location.search);
+  const slug = (params.get("slug") || SLUG_DEFAULT).trim().toLowerCase();
+
+  function armarLink(numero) {
+    return `https://wa.me/${numero}?text=${encodeURIComponent(MENSAJE)}`;
+  }
+
+  function activarBoton(numero) {
+    const btn = document.getElementById("btn-whatsapp");
+    btn.href = armarLink(numero);
+    btn.classList.remove("loading");
+    document.getElementById("btn-main").textContent = "WHATSAPP OFICIAL";
+    // Evento Meta al hacer clic (igual que antes: cuenta como "mensaje").
+    btn.addEventListener("click", () => {
+      if (window.fbq) fbq('trackCustom', 'clickwhatsapp');
+    });
+  }
+
+  // Pide el número actual al panel; si falla, usa el de respaldo.
+  document.addEventListener("DOMContentLoaded", async () => {
+    let numero = WHATSAPP_FALLBACK;
+    try {
+      const r = await fetch(`${PANEL_ENDPOINT}?slug=${encodeURIComponent(slug)}`, { cache: "no-store" });
+      const data = await r.json();
+      if (data && data.ok && data.whatsapp_number) numero = data.whatsapp_number;
+    } catch (e) {
+      // sin conexión al panel → queda el número de respaldo
+    }
+    activarBoton(numero);
+  });
+</script>
+
+</body>
+</html>
