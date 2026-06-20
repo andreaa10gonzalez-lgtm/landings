@@ -146,12 +146,12 @@
   // ============================================================
   // CONFIG — lo único que podrías querer tocar
   // ============================================================
-  // Endpoint del panel que devuelve el número actual del cliente.
+  // Endpoints del panel.
   const PANEL_ENDPOINT = "https://xfizuvswwigfxdqtngwq.supabase.co/functions/v1/landing-whatsapp";
+  const CLIC_ENDPOINT  = "https://xfizuvswwigfxdqtngwq.supabase.co/functions/v1/landing-clic";
   // Número de RESPALDO por si el panel no responde (que el botón nunca quede muerto).
   const WHATSAPP_FALLBACK = "542613635257";
   // El slug del cliente sale de la URL: ...?slug=casino-demo
-  // Si no viene en la URL, se usa este por defecto.
   const SLUG_DEFAULT = "casino-demo";
   const MENSAJE = "Hola, quiero más info.";
   // ============================================================
@@ -159,8 +159,34 @@
   const params = new URLSearchParams(location.search);
   const slug = (params.get("slug") || SLUG_DEFAULT).trim().toLowerCase();
 
+  // Código único de esta visita: viaja en el mensaje para cruzar el clic con
+  // el mensaje en el panel y mandar la conversión real a Meta (CAPI).
+  const ref = (Math.random().toString(36).slice(2, 8) + Math.random().toString(36).slice(2, 6)).toUpperCase();
+
+  // Huella de Meta para atribución (fbclid de la URL + cookies del pixel).
+  function getCookie(name) {
+    const m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+    return m ? m.pop() : '';
+  }
+  const fbclid = params.get('fbclid') || '';
+  const fbp = getCookie('_fbp');
+  let fbc = getCookie('_fbc');
+  if (!fbc && fbclid) fbc = `fb.1.${Date.now()}.${fbclid}`;
+
   function armarLink(numero) {
-    return `https://wa.me/${numero}?text=${encodeURIComponent(MENSAJE)}`;
+    return `https://wa.me/${numero}?text=${encodeURIComponent(MENSAJE + ' (#' + ref + ')')}`;
+  }
+
+  // Registra el clic (no bloquea la ida al WhatsApp).
+  function registrarClic() {
+    try {
+      const payload = JSON.stringify({ ref, slug, fbclid, fbp, fbc });
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon(CLIC_ENDPOINT, new Blob([payload], { type: 'text/plain' }));
+      } else {
+        fetch(CLIC_ENDPOINT, { method: 'POST', body: payload, keepalive: true });
+      }
+    } catch (e) {}
   }
 
   function activarBoton(numero) {
@@ -168,9 +194,9 @@
     btn.href = armarLink(numero);
     btn.classList.remove("loading");
     document.getElementById("btn-main").textContent = "WHATSAPP OFICIAL";
-    // Evento Meta al hacer clic (igual que antes: cuenta como "mensaje").
     btn.addEventListener("click", () => {
       if (window.fbq) fbq('trackCustom', 'clickwhatsapp');
+      registrarClic();
     });
   }
 
